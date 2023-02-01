@@ -1,0 +1,62 @@
+<section class="container-sm p-5">
+    <form [formGroup]="registroform" class="border border-warning p-5 back mx-5" (submit)="save()" >
+        <h2>Inicio de session</h2>
+        <section class="form-group ">
+            <label for="username" class="mt-3 h5">Nombres:</label>
+            <input formControlName="nombres" type="text" class="form-control my-3" id="nombres" >
+            <section *ngIf="nombres?.invalid && (nombres?.dirty || nombres?.touched)">
+                <section *ngIf="nombres?.errors?.['required']" class="alert alert-success">
+                    El nombre es obligatorio
+                </section>
+                <section *ngIf="nombres?.errors?.['minlength']" class="alert alert-success">
+                    Minimo de 3 caracteres
+                </section>
+                <section *ngIf="nombres?.errors?.['maxlength']" class="alert alert-success">
+                    Maximo de 25 caracteres
+                </section>
+            </section>
+        </section>
+        <section class="form-group">
+            <label for="apellidos" class="mt-3 h5">Apellidos:</label>
+            <input formControlName="apellidos" minlength="6" type="text" class="form-control my-3" id="password">
+            <section *ngIf="apellidos?.invalid && (apellidos?.dirty || apellidos?.touched)">
+                <section *ngIf="apellidos?.errors?.['required']" class="alert alert-success">
+                    los apellidos son obligatorios
+                </section>
+                <section *ngIf="apellidos?.errors?.['minlength']" class="alert alert-success">
+                    Minimo de 6 caracteres
+                </section>
+                <section *ngIf="apellidos?.errors?.['pattern']" class="alert alert-success">
+                    Minomo 2 apellidos
+                </section>
+            </section>
+        </section>
+        <section class="form-group">
+            <label for="username" class="mt-3 h5">Email:</label>
+            <input formControlName="email" type="email" class="form-control my-3" id="email">
+            <section *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+                <section *ngIf="email?.errors?.['required']" class="alert alert-success">
+                    el email es requirido es obligatorio
+                </section>
+                <section *ngIf="email?.errors?.['email']" class="alert alert-success">
+                    Debe ser un correo valido
+                </section>
+            </section>
+        </section>
+        <section class="form-group">
+            <label for="username" class="mt-3 h5">Website:</label>
+            <input formControlName="website" type="text" class="form-control my-3" id="website">
+            <section *ngIf="website?.invalid && (website?.dirty || website?.touched)">
+                <section *ngIf="website?.errors?.['required']" class="alert alert-success">
+                    Es requirido
+                </section>
+            </section>
+        </section>
+        <div class="p-4">
+            <input class="btn btn-dark mx-auto" [disabled]="registroform.invalid"  type="submit" value="Guardar">
+        </div>
+        <section>
+            {{res}}
+        </section>
+    </form>
+</section>
