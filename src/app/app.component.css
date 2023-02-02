@@ -1,0 +1,43 @@
+.container {
+    margin-inline: auto;
+    width: min(50rem, 100%);
+    /* cambia elancho del form */
+    display: grid;
+    place-items: center;
+  }
+
+  form {
+    display: grid;
+    width: 100%;
+    margin-inline: auto;
+    transition: all .2s ease;
+  }
+
+  input:invalid {
+    /* background-color: red !important; para cambiar el color de fondo de todos los inputs cuando el form es invalido */
+  }
+
+  button {
+    width: 100%;
+  }
+
+  form:invalid button,
+  form:invalid [type='submit'] {
+    background-color: gray !important;
+    pointer-events: none !important;
+    /* hace que el boton dentro del form sea gris y no clickeable mientras el form sea invalido */
+  }
+
+  form:valid {
+    background-color: lightgreen;
+    /* hace que cambie el color de fondo de formulario cuando todos sus campos sean validos */
+  }
+
+  form:valid button,
+  form:valid [type='submit'] {
+    background-color: green !important;
+    /* cuando sea valido el boton tmb cambia de color */
+  }
+
+  small{
+    font-size: 1rem;}

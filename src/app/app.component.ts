@@ -21,7 +21,7 @@ export class AppComponent {
       validators: [
         Validators.required,
         Validators.minLength(6),
-        Validators.pattern("/[A-Za-z]\s[A-Za-z]*")
+        Validators.pattern("^[a-zA-Z]+(\s[a-zA-Z]+)+$")
       ]
     }],
     email: ['', {
